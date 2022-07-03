@@ -6,4 +6,4 @@ CREATE DATABASE life_tracker;
 
 \connect life_tracker;
 
-\i vaccine-hub-schema.sql
+\i life-tracker-schema.sql
