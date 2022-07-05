@@ -2,7 +2,7 @@
 
 # Week 3 Assignment: Life Tracker
 
-Submitted by: **NAME**
+Submitted by: **Steven Salto**
 
 Deployed Application: [Lifetracker Deployed Site](ADD_LINK_HERE)
 
@@ -12,14 +12,14 @@ Deployed Application: [Lifetracker Deployed Site](ADD_LINK_HERE)
 
 - [ ] **The Nav Bar:** Implement customized views for users who are logged in vs not logged in.
   - [ ] If the user is logged in, it should display a **Sign Out** button. 
-  - [ ] If no user is logged in, it should display **Login** and **Register** buttons
-  - [ ] Display a logo on the far left side, and contain links to the individual detailed activity page. 
-- [ ] **The Landing Page:** Display a large hero image and a brief blurb on what this application is about
-- [ ] **Login Page:** A form that allows users to login with email and password.
-- [ ] **Registration Page:** A form that allows the user to sign up with their email, password, username, first name, and last name.
+  - [X] If no user is logged in, it should display **Login** and **Register** buttons
+  - [X] Display a logo on the far left side, and contain links to the individual detailed activity page. 
+- [X] **The Landing Page:** Display a large hero image and a brief blurb on what this application is about
+- [X] **Login Page:** A form that allows users to login with email and password.
+- [X] **Registration Page:** A form that allows the user to sign up with their email, password, username, first name, and last name.
 - [ ] When a user first authenticates, they should be redirected to an authenticated view (i.e the detailed activity page). When they sign out, all frontend data should be reset.
 - [ ] Users have access to an overview Activity page that show one summary statistic about each of the 3 types of activity tracked.
-- [ ] The API should have a `security` middleware that only allows authenticated users to access resources and only allows users to access resources about themselves. 
+- [X] The API should have a `security` middleware that only allows authenticated users to access resources and only allows users to access resources about themselves. 
 - [ ] Users should have the ability to track at least **1** types of activities (i.e Nutrition, Exercise, Sleep, etc.). Each activity should be tracked on separate pages.
 - [ ] Deployed website with Heroku & Surge. 
 
@@ -40,23 +40,22 @@ Implement any of the following features to improve the application:
 
 ### Walkthrough Video
 
-`TODO://` Add the embedded URL code to your animated app walkthrough below, `ADD_EMBEDDED_CODE_HERE`. Make sure the video or gif actually renders and animates when viewing this README. (🚫 Remove this paragraph after adding walkthrough video)
-
-`ADD_EMBEDDED_CODE_HERE`
+WEEK 4 project 3 part 1:
+![](https://media.giphy.com/media/Tg8XwFflaNuy7UNZMJ/giphy.gif)
 
 ### Reflection
 
 * Did the topics discussed in your labs prepare you to complete the assignment? Be specific, which features in your weekly assignment did you feel unprepared to complete?
 
-[Add your response here]
+No, I was not prepared for creating tokens and dealing with user authorizations. 
 
 * If you had more time, what would you have done differently? Would you have added additional features? Changed the way your project responded to a particular event, etc.
   
-[Add your response here]
+With more time I would've worked on css and repositioning my compnonents.
 
 * Reflect on your project demo, what went well? Were there things that maybe didn't go as planned? Did you notice something that your peer did that you would like to try next time?
 
-[Add your response here]
+I think I was able to concisely get my project points accross such as what was accomplished and what is currently being worked on.
 
 ### Open-source libraries used
 
@@ -66,4 +65,4 @@ Implement any of the following features to improve the application:
 
 Give a shout out to somebody from your cohort that especially helped you during your project. This can be a fellow peer, instructor, TA, mentor, etc.
 
-[Add your response here]
+Shout out to my pod for helping me figure out user authentication.
