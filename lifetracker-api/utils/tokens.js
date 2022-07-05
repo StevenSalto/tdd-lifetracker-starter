@@ -20,3 +20,9 @@ const validateToken = (token) => {
         return {}
     }
 }
+
+module.exports = {
+    generateToken,
+    createUserJwt,
+    validateToken
+}

@@ -8,9 +8,37 @@ import RegistrationPage from "../RegistrationPage/RegistrationPage"
 import ActivityPage from "../ActivityPage/ActivityPage"
 import NutritionPage from "../NutritionPage/NutritionPage"
 import NotFound from "../NotFound/NotFound"
+import axios from "axios"
 
 
 export default function App() {
+  const [user, setUser] = React.useState({})
+  const [posts, setPosts] = React.useState({})
+  const [error, setError] = React.useState({})
+  const [isFetching, setIsFetching] = React.useState(false)
+
+  React.useEffect(() => {
+    const fetchPosts = async () => {
+      setIsFetching(true)
+
+      try {
+        const res = await axios.get("http://localhost:3001/posts")
+        if (res?.data?.posts) {
+          setError(null)
+          setPosts(res.data.posts)
+        }
+      } catch(error) {
+        console.log(error)
+        const message = err?.response?.data?.message
+        setError(message ?? String(error))
+      } finally {
+        setIsFetching(false)
+      }
+    }
+
+    fetchPosts()
+  }, [])
+
   return (
     <div className="app">
       <React.Fragment>

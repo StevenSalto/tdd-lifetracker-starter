@@ -16,7 +16,7 @@ export default function RegistrationPage() {
         setForm((prevForm) => ({...prevForm, [targetName]: targetValue}))
     }
 
-    const handleOnClick = () => {
+    const handleOnSubmit = () => {
         console.log(form);
     }
 
@@ -27,7 +27,7 @@ export default function RegistrationPage() {
             <input type="text" name="email" placeholder="email" value={form.email} onChange={handleOnChange}/>
             <input type="text" name="username" placeholder="username" value={form.username} onChange={handleOnChange}/>
             <input type="text" name="password" placeholder="password" value={form.password} onChange={handleOnChange}/>
-            <input type="button" name="submit" value="create account" onClick={handleOnClick} onChange={handleOnChange}/>
+            <input type="button" name="submit" value="create account" onClick={handleOnSubmit}/>
         </div>
     )
 }

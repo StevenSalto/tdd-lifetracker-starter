@@ -1,5 +1,6 @@
 const db = require("../db")
 const bcrypt = require("bcrypt")
+
 const {BadRequestError, UnauthorizedError} = require("../utils/errors")
 const {BCRYPT_WORK_FACTOR} = require("../config")
 
@@ -31,6 +32,27 @@ class User {
         return user
     }
 
+    static async login(credentials) {
+        const requiredFields = ["email", "password"];
+        requiredFields.forEach(field => {
+            if (!credentials.hasOwnProperty(field)){
+                throw new BadRequestError(`Missing ${field} in req body`)
+            }
+        })
+
+        const user = await User.fetchUserByEmail(credentials.email)
+        if(user){
+            const isValid = await bcrypt.compare(credentials.password, user.password)
+            if(isValid) {
+                return user;
+            }
+        }
+        
+        throw new UnauthorizedError("Invalid username/password")
+    }
+
+
+// HELPER METHOD
     static async fetchUserByEmail(email) {
         if(!email) {
             throw new BadRequestError("No email provided")

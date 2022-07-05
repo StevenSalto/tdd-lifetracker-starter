@@ -23,6 +23,7 @@ console.log("---")
 
 module.exports = {
     PORT,
+    KEY,
     BCRYPT_WORK_FACTOR,
     getDatabaseUri,
 }

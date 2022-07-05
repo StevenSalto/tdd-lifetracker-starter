@@ -1,13 +1,38 @@
 const express = require("express");
 const router = express.Router();
+const { createUserJwt } = require("../utils/tokens")
+const security = require("../middleware/security")
 const User = require("../models/user")
+const Exercise = require("../models/exercise")
 
-router.post("/register", async (req, res, next) => {
+router.post("/user", async (req, res, next) => {
     try{
         const user = await User.register(req.body)
-        return res.status(201).json({ user })
-    } catch(err) {
-        next(err);
+        const token = createUserJwt(user)
+        return res.status(201).json({ user, token })
+    } catch(error) {
+        next(error)
+    }
+})
+
+router.post("/login", async (req, res, next) => {
+    try {
+        const user = await User.login(req.body)
+        const token = createUserJwt(user)
+        return res.status(200).json({ user, token })
+    } catch(error) {
+        next(error)
+    }
+})
+
+   
+
+router.post("/exercise", async (req, res, next) => {
+    try {
+        const exercise = await Exercise.recordExercise(req.body)
+        return res.status(201).json({ exercise })
+    } catch(error) {
+        next(error)
     }
 })
 
