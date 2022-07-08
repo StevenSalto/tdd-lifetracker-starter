@@ -1,7 +1,8 @@
+import axios from 'axios';
 import {useNavigate} from 'react-router-dom'
 import * as React from 'react'
-export default function LoginPage() {
-    var isLoggedIn = false;
+export default function LoginPage({isLoggedIn, toggleLoginStatus, setUser}) {
+    console.log(isLoggedIn)
     const [form, setForm] = React.useState({
         email: "",
         password: ""
@@ -14,10 +15,16 @@ export default function LoginPage() {
         setForm((prevForm) => ({...prevForm, [targetName]: targetValue}))
     }
 
-    const handleOnClick = () => {
-        console.log(form);
+    const handleOnClick = async () => {
+        try {const res = await axios.post(`http://localhost:3001/register/login`, form)
+            console.log(res)
+            setUser(res)
+            toggleLoginStatus()
+            navigate('/activity');
+        } catch(error) {
+            console.log(error)
+        }
     }
-
     const navigate = useNavigate()
     React.useEffect(() => {
         if(isLoggedIn) {

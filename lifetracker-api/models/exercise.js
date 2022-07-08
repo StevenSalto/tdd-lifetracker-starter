@@ -7,6 +7,10 @@ class Exercise {
             }
         })
     }
+
+    static async listExercises(data) {
+
+    }
 }
 
 module.exports = Exercise

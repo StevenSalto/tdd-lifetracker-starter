@@ -8,6 +8,7 @@ const db = require("./db")
 const security = require("./middleware/security")
 const app = express()
 
+app.use(cors())
 app.use(express.json())
 
 app.use('/register', registerRoute)

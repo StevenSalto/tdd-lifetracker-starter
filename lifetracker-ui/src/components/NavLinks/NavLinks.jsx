@@ -1,7 +1,8 @@
 import {Link} from "react-router-dom"
 import "./NavLinks.css"
 
-export default function NavLinks() {
+export default function NavLinks({isLoggedIn, toggleLoginStatus}) {
+
     return (
         <div className="nav-links">
             <ul className="links">
@@ -9,22 +10,22 @@ export default function NavLinks() {
                 <li><Link to="/nutrition">Nutrition</Link></li>
                 <li><Link to="/exercise">Exercise</Link></li>
                 <li><Link to="/sleep">Sleep</Link></li>
-                <li><Logio/></li>
-                <li><Link to="/register">Register</Link></li>
+                <li><Logio isLoggedIn={isLoggedIn}/></li>
+                <li onClick={toggleLoginStatus()}><Link to={isLoggedIn?"": "/register"}>{isLoggedIn ? "Logout": "Register"}</Link></li>
             </ul>
         </div>
     )
 }
 
-function Logio() {
-    let isUserloggedIn = false;
+function Logio({isLoggedIn}) {
+    let isUserloggedIn = isLoggedIn;
 
     let label = '';
     let path = '';
 
     if(isUserloggedIn) {
         path = '/'
-        label = 'Logged IN'
+        label = ''
     } else {
         path = '/login'; label = 'Login'
     }

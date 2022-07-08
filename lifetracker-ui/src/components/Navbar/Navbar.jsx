@@ -3,7 +3,7 @@ import NavLinks from "../NavLinks/NavLinks"
 import "./Navbar.css"
 
 
-export default function LandingPage (props) {
+export default function LandingPage ({isLoggedIn, toggleLoginStatus}) {
     return (
         <div className="navbar">
             <div className="content">
@@ -12,7 +12,7 @@ export default function LandingPage (props) {
                         <img src="http://codepath-lifetracker.surge.sh/static/media/codepath.70a9a31f.svg"/>
                     </Link>
                 </div>
-                <NavLinks />
+                <NavLinks isLoggedIn={isLoggedIn} toggleLoginStatus={toggleLoginStatus}/>
             </div>
         </div>
     )

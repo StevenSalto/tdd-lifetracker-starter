@@ -1,6 +1,8 @@
+import axios from "axios";
 import * as React from "react"
+import {useNavigate} from 'react-router-dom'
 
-export default function RegistrationPage() {
+export default function RegistrationPage({isLoggedIn, toggleLoginStatus, setUser}) {
     const [form, setForm] = React.useState({
         firstName: "",
         lastName: "",
@@ -15,9 +17,17 @@ export default function RegistrationPage() {
 
         setForm((prevForm) => ({...prevForm, [targetName]: targetValue}))
     }
-
-    const handleOnSubmit = () => {
-        console.log(form);
+    const navigate = useNavigate()
+    const handleOnSubmit = async () => {
+        try {const res = await axios.post(`http://localhost:3001/register/user`, form)
+            console.log(res)
+            setUser(res)
+            toggleLoginStatus()
+            navigate('/activity');
+        }
+        catch(error) {
+            console.log(error)
+        }
     }
 
     return (

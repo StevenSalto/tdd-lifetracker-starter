@@ -52,7 +52,7 @@ class User {
     }
 
 
-// HELPER METHOD
+    // HELPER METHOD
     static async fetchUserByEmail(email) {
         if(!email) {
             throw new BadRequestError("No email provided")

@@ -4,6 +4,7 @@ const { createUserJwt } = require("../utils/tokens")
 const security = require("../middleware/security")
 const User = require("../models/user")
 const Exercise = require("../models/exercise")
+const Nutrition = require("../models/nutrition")
 
 router.post("/user", async (req, res, next) => {
     try{
@@ -31,6 +32,15 @@ router.post("/exercise", async (req, res, next) => {
     try {
         const exercise = await Exercise.recordExercise(req.body)
         return res.status(201).json({ exercise })
+    } catch(error) {
+        next(error)
+    }
+})
+
+router.post("/nutrition", async (req, res, next) => {
+    try{
+        const nutrition = await Nutrition.recordNutrition(req.body)
+        return res.status(201).json({ nutrition })
     } catch(error) {
         next(error)
     }
