@@ -8,6 +8,7 @@ import RegistrationPage from "../RegistrationPage/RegistrationPage"
 import ActivityPage from "../ActivityPage/ActivityPage"
 import NutritionPage from "../NutritionPage/NutritionPage"
 import NotFound from "../NotFound/NotFound"
+import Create from "../Create/Create"
 import axios from "axios"
 
 
@@ -55,6 +56,7 @@ export default function App() {
             <Route path="/activity" element={<ActivityPage isLoggedIn={isLoggedIn}/>}/>
             <Route path="/nutrition" element={<NutritionPage isLoggedIn={isLoggedIn} user={user}/>}/>
             <Route path='*' element={<NotFound />}/>
+            <Route path="/create" element={<Create />}/>
           </Routes>
         </BrowserRouter>
       </React.Fragment>
