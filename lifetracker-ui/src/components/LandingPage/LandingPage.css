@@ -1,4 +1,33 @@
+.landing-page {
+    margin-top: 100px;
+    
+}
+
+.hero {
+    display: flex;
+    height: 500px;
+    flex-direction: column;
+    justify-content:  center;
+    align-items: center;
+    position: relative;
+}
+
+.hero-img {
+    position: absolute;
+}
 
 .cta {
-    display: flex;
+    position: relative;
+    font-size: 8vw;
+    z-index: 10;
+}
+
+.landing-page p {
+    position: relative;
+    font-size: 2vw;
+    z-index: 10;
+}
+
+.features {
+    text-align: center;
 }

@@ -29,8 +29,8 @@ class Nutrition {
         const result = await db.query(
             `SELECT * FROM nutrition`
         )
-
-        const nutritionItem = result.rows[0]
+        console.log(result)
+        const nutritionItem = result.rows
         return nutritionItem
     }
 }
