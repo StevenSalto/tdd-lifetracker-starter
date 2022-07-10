@@ -16,7 +16,7 @@ class UnauthorizedError extends ExpressError {
         super(message, 401)
     }
 }
-class  ForbiddenError extends ExpressError {
+class ForbiddenError extends ExpressError {
     constructor(message="Forbidden") {
         super(message, 403)
     }

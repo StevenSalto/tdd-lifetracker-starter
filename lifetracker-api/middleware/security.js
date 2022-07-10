@@ -1,5 +1,8 @@
 const jwt = require("jsonwebtoken")
+const db = require("../db")
+
 const { KEY } = require("../config")
+
 const { UnauthorizedError } = require("../utils/errors")
 
 const jwtFrom = ({headers}) => {
@@ -17,20 +20,32 @@ const extractUserFromJwt = (req, res, next) => {
     try {
         const token = jwtFrom(req)
         if (token) {
-            res.local.user = jwt.verify(token, KEY)  
+            res.locals.email = jwt.verify(token, KEY).email
         }
+        return next()
     } catch(error) {
         return next()
     }
 }
 
-const requireAuthenticatedUser = (req, res, next) => {
+const requireAuthenticatedUser = async (req, res, next) => {
     try {
-        const {user} = res.locals
-        if (!user?.email) {
+        const { email } = res.locals
+        if (!email) {
             throw new UnauthorizedError();
         }
-    } catch(err) {
+
+        const result = await db.query(
+            `SELECT * FROM users WHERE email=$1`,
+            [email]
+        )
+       
+        if(result.rows.length == 0) {
+            throw new UnauthorizedError();
+        }
+        
+        return next()
+    } catch(error) {
         return next(error)
     }
 }

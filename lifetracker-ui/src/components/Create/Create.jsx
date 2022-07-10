@@ -29,18 +29,50 @@ export default function Create() {
         }
     }
 
+    const name = 
+        <>
+            <label htmlFor="name">Name</label>
+            <br />
+            <input name="name" type="text" placeholder="Name" value={form.name} onChange={handleOnChange}/>
+            <br />
+        </>
+    const category = 
+        <>
+            <label htmlFor="category">Category</label>
+            <br />
+            <input name="category" type="text" placeholder="Category"value={form.category} onChange={handleOnChange}/>
+            <br />
+        </>
+    const quantity = 
+        <>
+            <label htmlFor="quantity">Quantity</label>
+            <br />
+            <input name="quantity" type="number" placeholder="Quantity" value={form.quantity}  onChange={handleOnChange}/>
+            <br />
+        </>
+    const calories = 
+        <>
+            <label htmlFor="calories">Calories</label>
+            <br />
+            <input name="calories" type="number" placeholder="Calories" value={form.calories} onChange={handleOnChange}/>
+            <br />
+        </>
+    const image_url = 
+        <>
+            <label htmlFor="image_url">Image Url</label>
+            <br />
+            <input name="image_url" type="text" placeholder="URL" value={form.image_url} onChange={handleOnChange}/>
+            <br />
+        </>
+
+    const content = false
     return (
         <div>
-            <label htmlFor="name">Name</label><br />
-            <input name="name" type="text" placeholder="Nutrition name" value={form.name} onChange={handleOnChange}/><br />
-            <label htmlFor="category">Category</label><br />
-            <input name="category" type="text" placeholder="Nutrition category"value={form.category} onChange={handleOnChange}/><br />
-            <label htmlFor="quantity">Quantity</label><br />
-            <input name="quantity" type="number" placeholder="Quant" value={form.quantity}  onChange={handleOnChange}/><br />
-            <label htmlFor="calories">Calories</label><br />
-            <input name="calories" type="number" placeholder="Calories" value={form.calories} onChange={handleOnChange}/><br />
-            <label htmlFor="image-url">Image Url</label><br />
-            <input name="image_url" type="text" placeholder="Url" value={form.image_url} onChange={handleOnChange}/><br />
+            {name}
+            {category}
+            {quantity}
+            {calories}
+            {image_url}
             <input type="button" name="submit" value="create nut" onClick={handleOnSubmit}/>
 
         </div>

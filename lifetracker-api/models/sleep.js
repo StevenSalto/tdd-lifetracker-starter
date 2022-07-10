@@ -5,9 +5,9 @@ const User = require("./user")
 const {BadRequestError} = require("../utils/errors")
 
 
-class Exercise {
+class Sleep {
     static async recordEntry(email, data) {
-        const requiredFields = ["name", "category", "duration", "intensity"];
+        const requiredFields = ["start_time", "end_time"];
         requiredFields.forEach(field => {
             if (!data.hasOwnProperty(field)){
                 throw new BadRequestError(`Missing ${field} in req body`)
@@ -17,29 +17,29 @@ class Exercise {
         const user = await User.fetchUserByEmail(email)
 
         const result = await db.query(
-            `INSERT INTO exercise (user_id, name, category, duration, intensity)
-             VALUES ($1, $2, $3, $4, $5)
-             RETURNING id, user_id, name, category, duration, intensity, date;`,
-            [user.id, data.name, data.category, data.duration, data.intensity]
+            `INSERT INTO sleep (user_id, start_time, end_time)
+             VALUES ($1, $2, $3)
+             RETURNING id, user_id, start_time, end_time, date;`,
+            [user.id, data.start_time, data.end_time]
         )
 
-        const exerciseItem = result.rows[0]
+        const sleepItem = result.rows[0]
 
-        return exerciseItem
+        return sleepItem
     }
 
     static async listEntries(email) {
         const user = await User.fetchUserByEmail(email)
 
         const result = await db.query(
-            `SELECT * FROM exercise WHERE user_id=$1`,
+            `SELECT * FROM sleep WHERE user_id=$1`,
             [user.id]
         )
 
-        const exerciseItem = result.rows
+        const sleepItem = result.rows
 
-        return exerciseItem
+        return sleepItem
     }
 }
 
-module.exports = Exercise
+module.exports = Sleep
