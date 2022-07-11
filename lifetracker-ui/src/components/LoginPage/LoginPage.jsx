@@ -16,9 +16,10 @@ export default function LoginPage({isLoggedIn, toggleLoginStatus, setUser}) {
     }
 
     const handleOnClick = async () => {
-        try {const res = await axios.post(`http://localhost:3001/register/login`, form)
-            console.log(res)
-            setUser(res)
+        try {const res = await axios.post(`http://localhost:3001/user/login`, form)
+            console.log(res.data.token)
+            setUser(res.data.token)
+            window.localStorage.setItem('token', res.data.token);
             toggleLoginStatus()
             navigate('/activity');
         } catch(error) {

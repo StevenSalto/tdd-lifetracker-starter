@@ -7,10 +7,11 @@ export default function LandingPage () {
                 <h1 className="cta"> Life Tracker </h1>
                 <p> Hello, I'm alive </p>
             </div>
-
-            <div className="features">
-                <div>Nutrition <img src="http://codepath-lifetracker.surge.sh/static/media/icons8-porridge-100.132d2715.svg"/></div>
-            </div>
         </div>
     )
 }
+
+
+//  <div className="features">
+//      <div>Nutrition <img src="http://codepath-lifetracker.surge.sh/static/media/icons8-porridge-100.132d2715.svg"/></div>
+//  </div>

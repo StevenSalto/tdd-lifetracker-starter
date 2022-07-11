@@ -4,7 +4,7 @@ import {useNavigate} from 'react-router-dom'
 
 export default function Create() {
     const [form, setForm] = React.useState({
-        user_id: "4",
+        user_id: "",
         name: "",
         category: "",
         quantity: "",
