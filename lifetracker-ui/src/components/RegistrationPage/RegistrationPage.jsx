@@ -19,7 +19,7 @@ export default function RegistrationPage({isLoggedIn, toggleLoginStatus, setUser
         setForm((prevForm) => ({...prevForm, [targetName]: targetValue}))
     }
     const handleOnSubmit = async () => {
-        try {const res = await axios.post(`http://localhost:3001/user/register`, form)
+        try {const res = await axios.post(`process.env.REACT_APP_REMOTE_HOST_URL/user/register`, form)
             console.log(res.data.token)
             setUser(res.data.token)
             window.localStorage.setItem('token', res.data.token);

@@ -28,7 +28,7 @@ export default function App() {
   //     setIsFetching(true)
 // 
   //     try {
-  //       const res = await axios.get("http://localhost:3001/posts")
+  //       const res = await axios.get("process.env.REACT_APP_REMOTE_HOST_URL/posts")
   //       if (res?.data?.posts) {
   //         setError(null)
   //         setPosts(res.data.posts)

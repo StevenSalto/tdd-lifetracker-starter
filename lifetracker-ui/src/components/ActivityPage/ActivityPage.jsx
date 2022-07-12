@@ -8,7 +8,7 @@ export default function ActivityPage({isLoggedIn}) {
 
     const handleSetAverageCalories = async () => {
         try {
-            const res = await axios.get(`http://localhost:3001/register/nutrition-list`)
+            const res = await axios.get(`process.env.REACT_APP_REMOTE_HOST_URL/register/nutrition-list`)
             setAverageCalories(3000)
         } catch(error) {
             console.log(error)

@@ -10,7 +10,7 @@ export default function NutritionPage({isLoggedIn, user}) {
     const [nutritionArray, setNutritionArray] = React.useState([])
 
     const getNutritionData= async() => {
-        const res= await axios.get("http://localhost:3001/nutrition/list-entries")
+        const res= await axios.get("process.env.REACT_APP_REMOTE_HOST_URL/nutrition/list-entries")
         setNutritionArray(res.data.nutritionList)
     }
 

@@ -16,7 +16,7 @@ export default function LoginPage({isLoggedIn, toggleLoginStatus, setUser}) {
     }
 
     const handleOnClick = async () => {
-        try {const res = await axios.post(`http://localhost:3001/user/login`, form)
+        try {const res = await axios.post(`process.env.REACT_APP_REMOTE_HOST_URL/user/login`, form)
             console.log(res.data.token)
             setUser(res.data.token)
             window.localStorage.setItem('token', res.data.token);

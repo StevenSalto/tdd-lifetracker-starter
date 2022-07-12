@@ -22,7 +22,7 @@ export default function Create() {
     const navigate = useNavigate()
     const handleOnSubmit = async () => {
         try {
-            const res = await axios.post(`http://localhost:3001/register/nutrition`, form)
+            const res = await axios.post(`process.env.REACT_APP_REMOTE_HOST_URL/register/nutrition`, form)
             navigate('/nutrition')
         } catch(error) {
             console.log(error)
